@@ -1,14 +1,28 @@
+(let [appserver-version "1.5.3"]
+
 (defproject mail-scraper "0.1.0-SNAPSHOT"
 	:description  "Scrapes mails sent to Google App Engine, stores and displays the results."
+	
+	:repositories {"sonatype-releases" "https://oss.sonatype.org/content/repositories/releases"
+								 "sonatype-snapshots" "https://oss.sonatype.org/content/repositories/snapshots"}
+
   :dependencies [[org.clojure/clojure "1.2.1"]
-                 [org.clojure/clojure-contrib "1.2.1"]
-                 [com.google.appengine/appengine-tools-sdk "1.5.3"]
+                 [org.clojure/clojure-contrib "1.2.0"]
+								 [javax.servlet/servlet-api "2.5"]
+                 [com.google.appengine/appengine-tools-sdk ~appserver-version]
 								 [enlive "1.0.0"]]
-  :dev-dependencies [[swank-clojure "1.3.2"]
-										 [midje "1.1.1"]
-										 [lein-midje "1.0.0"]
-										 [com.google.appengine/appengine-testing "1.5.1"]
-										 [org.seleniumhq.selenium/selenium-java "2.5.0"]]
-  :namespaces [com.cyrusinnovation.mail-scraper]
+
+	;; Add lein-gae-serverctl and lein-gae-uat when pluginized, and remove scripts from leiningen directory
+  :dev-dependencies [[midje "1.2.0"]
+										 [lein-midje "1.0.3"] 
+										 [org.seleniumhq.selenium/selenium-java "2.5.0"]
+										 [com.google.appengine/appengine-testing ~appserver-version]]
+	
+  :aot [com.cyrusinnovation.mail-scraper.template-renderer]
   :compile-path "war/WEB-INF/classes/"
-  :library-path "war/WEB-INF/lib/")
+  :library-path "war/WEB-INF/lib/"
+		
+	:gae-appserver-sdk-install-path ~(str "/usr/local/appengine-java-sdk-" appserver-version)
+	:gae-appserver-address "localhost"
+	:gae-appserver-port "8080"
+))
