@@ -15,7 +15,8 @@
 	(let [template-path (str  "/WEB-INF/templates/" template-name ".html")
 				template (prepare-template this template-name template-path
 																	 [substitution-values]
-																	 [:h2.eventTitle] (html/content (:message substitution-values)))]
+																	 [:h2.eventTitle] (html/content (:message substitution-values))
+																	 [:title] (html/content (:title substitution-values)))]
         (apply str (template values-to-substitute))))
 
 (defn set-body [response html]
@@ -24,5 +25,5 @@
 
 (defn -service [this request response]
 	(let [template-name (str (str/replace (.getServletPath request) "/" "") "-template")]
-		(set-body response (render-template this template-name {:message "There are no networking events at this time."}))
+		(set-body response (render-template this template-name {:title "Networking Events" :message "There are no networking events at this time."}))
 		(.setStatus response HttpServletResponse/SC_OK)))
