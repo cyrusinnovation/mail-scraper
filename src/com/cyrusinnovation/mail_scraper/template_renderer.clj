@@ -11,12 +11,12 @@
 		 ~template-signature
 		 ~@template-mapping-forms))
 
-(defn render-template [this template-name]
+(defn render-template [this template-name values-to-substitute]
 	(let [template-path (str  "/WEB-INF/templates/" template-name ".html")
 				template (prepare-template this template-name template-path
 																	 [substitution-values]
 																	 [:h2.eventTitle] (html/content (:message substitution-values)))]
-        (apply str (template {:message "There are no networking events at this time."}))))
+        (apply str (template values-to-substitute))))
 
 (defn set-body [response html]
     (let [writer (.getWriter response)]
@@ -24,5 +24,5 @@
 
 (defn -service [this request response]
 	(let [template-name (str/replace (.getServletPath request) "/" "")]
-		(set-body response (render-template this template-name))
+		(set-body response (render-template this template-name {:message "There are no networking events at this time."}))
 		(.setStatus response HttpServletResponse/SC_OK)))
