@@ -28,6 +28,9 @@ After that, you can run:
 						 # For this you also need to add the Firefox binary to your PATH
 						 # E.g.,  $>	export PATH=$PATH:/Applications/Firefox.app/Contents/MacOS
 
+The shell scripts that start and stop the server currently presuppose some flavor
+of UNIX, and have only been tested on OS X.
+
 Development
 =====
 
