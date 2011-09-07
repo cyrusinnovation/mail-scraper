@@ -1,5 +1,5 @@
 (ns com.cyrusinnovation.mail-scraper.template-utilities
-	(:require [clojure.string :as str])
+	(:require [clojure.string :as string])
   (:require [net.cgrand.enlive-html :as html]))
 
 (defn template-name [action-name]
@@ -15,8 +15,14 @@
 	(.getRealPath (.getServletContext servlet) path))
 
 (defn action-name-from [request]
-	(str/replace (servlet-path-from request) "/" ""))
+	(string/replace (servlet-path-from request) "/" ""))
 
-(defmacro prepare-template [servlet template-name template-path template-signature & template-mapping-forms]
-		`(html/deftemplate ~(symbol (eval template-name)) (new java.io.File (real-path-from-context ~servlet ~(eval template-path)))
-			~template-signature ~@template-mapping-forms))
+(defn template-file [servlet template-path]
+  (new java.io.File (real-path-from-context servlet template-path)))
+
+(defmacro prepare-template [servlet action-name template-signature & template-mapping-forms]
+  `(html/deftemplate
+     ~(symbol (template-name action-name))
+     (template-file ~servlet (template-path ~action-name))
+		 ~template-signature
+     ~@template-mapping-forms))

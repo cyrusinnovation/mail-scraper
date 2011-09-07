@@ -14,13 +14,14 @@
  (provided (servlet-path-from ...request...) => "foo/"))
 
 (fact
- (macroexpand-1 '(prepare-template "obj" "template-name" "template-path" [substitution-values] [.title] (html/content (:key substitution-values))))
- => '(html/deftemplate template-name
-			 (new java.io.File (com.cyrusinnovation.networkingevents.template-utilities/real-path-from-context "obj" "template-path"))
-											[substitution-values] [.title] (html/content (:key substitution-values))))
+   (template-file ...servlet... "/WEB-INF/templates/report-template.html") => (new java.io.File "war/WEB-INF/templates/report-template.html")
+   (provided (real-path-from-context ...servlet... "/WEB-INF/templates/report-template.html") => "war/WEB-INF/templates/report-template.html"))
 
 (fact
- (macroexpand-1 '(prepare-template "obj" (template-name "foo") (template-path "foo") [subs-values] [.title] (html/content (:key subs-values))))
- => '(html/deftemplate foo-template
-			 (new java.io.File (com.cyrusinnovation.networkingevents.template-utilities/real-path-from-context "obj" "/WEB-INF/templates/foo-template.html"))
-											[subs-values] [.title] (html/content (:key subs-values))))
+ (macroexpand-1 '(prepare-template ...servlet... "action" [substitution-values] [.title] (html/content (:key substitution-values))))
+ => '(net.cgrand.enlive-html/deftemplate
+       action-template
+       (com.cyrusinnovation.mail-scraper.template-utilities/template-file ...servlet...
+                                                                          (com.cyrusinnovation.mail-scraper.template-utilities/template-path "action"))
+       [substitution-values]
+       [.title] (html/content (:key substitution-values))))

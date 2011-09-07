@@ -1,29 +1,21 @@
 (ns com.cyrusinnovation.mail-scraper.template-renderer
-	(:require [net.cgrand.enlive-html :as html] [clojure.string :as str])
-	(:gen-class :extends javax.servlet.http.HttpServlet))
+    (:use com.cyrusinnovation.mail-scraper.template-utilities)
+    (:use com.cyrusinnovation.mail-scraper.handlers.report-handler)
+    (:gen-class :extends javax.servlet.http.HttpServlet))
 
 (import javax.servlet.http.HttpServletResponse)
 
-(defmacro prepare-template [this template-name template-path template-signature & template-mapping-forms]
-	`(html/deftemplate
-		 ~(symbol template-name)
-		 (new java.io.File (.getRealPath (.getServletContext ~this) ~template-path))
-		 ~template-signature
-		 ~@template-mapping-forms))
+(defn action-symbol [action-name]
+  (symbol (str "com.cyrusinnovation.mail-scraper.handlers." action-name "-handler/" action-name)))
 
-(defn render-template [this template-name values-to-substitute]
-	(let [template-path (str  "/WEB-INF/templates/" template-name ".html")
-				template (prepare-template this template-name template-path
-																	 [substitution-values]
-																	 [:h2.eventTitle] (html/content (:message substitution-values))
-																	 [:title] (html/content (:title substitution-values)))]
-        (apply str (template values-to-substitute))))
+(defmacro action [this action-name]
+  `((eval (action-symbol ~action-name)) ~this))
 
 (defn set-body [response html]
     (let [writer (.getWriter response)]
         (.write writer html)))
 
 (defn -service [this request response]
-	(let [template-name (str (str/replace (.getServletPath request) "/" "") "-template")]
-		(set-body response (render-template this template-name {:title "Networking Events" :message "There are no networking events at this time."}))
-		(.setStatus response HttpServletResponse/SC_OK)))
+  (set-body response
+            (action this (action-name-from request)))
+    (.setStatus response HttpServletResponse/SC_OK))
