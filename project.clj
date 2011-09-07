@@ -25,4 +25,12 @@
 	:gae-appserver-sdk-install-path ~(str "/usr/local/appengine-java-sdk-" appserver-version)
 	:gae-appserver-address "localhost"
 	:gae-appserver-port "8080"
-))
+  ))
+
+
+(require '(leiningen test [gae :as server] [midje :as midje]))
+(add-hook #'leiningen.test/test
+          (fn [test project & args]
+            (server/dev-appserver project)
+            (midje/midje project)
+            (server/kill-appserver)))
