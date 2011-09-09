@@ -1,4 +1,4 @@
-(ns endtoend.report-end-to-end-test
+(ns end-to-end-tests
 	(:use midje.sweet))
 
 (import org.openqa.selenium.firefox.FirefoxDriver)
@@ -15,8 +15,9 @@
 			(.get driver "http://localhost:8080/report")
 			(-> (.findElement driver (By/tagName "title")) (.getText)) => "Networking Events"
 			(-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "There are no networking events at this time.")
-	
-;; (fact "The application persists an event"
+
+;; Redo this using HTTP Post 
+;; (fact "The application persists and retrieves an event"
 ;; 			(.get driver "http://localhost:8080/events?name=An%20Event%20with%20a%20%3Ctag%3E")
 ;; 			(.get driver "http://localhost:8080/report")
 ;; 			(-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "An Event with a <tag>")

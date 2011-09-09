@@ -1,8 +1,8 @@
 (ns com.cyrusinnovation.mail-scraper.handlers.report-handler
-	(:use com.cyrusinnovation.mail-scraper.template-utilities)
+	(:use com.cyrusinnovation.mail-scraper.utils.template-utils)
   (:require [net.cgrand.enlive-html :as html]))
 
-(defn report [servlet]
+(defn report [servlet request response]
 	(let [template (prepare-template servlet "report"
 																	 [substitution-values]
                                    [:title] (html/content (:title substitution-values))

@@ -18,7 +18,7 @@
 										 [org.seleniumhq.selenium/selenium-java "2.5.0"]
 										 [com.google.appengine/appengine-testing ~appserver-version]]
 	
-  :aot [com.cyrusinnovation.mail-scraper.template-renderer]
+  :aot [com.cyrusinnovation.mail-scraper.dispatcher]
   :compile-path "war/WEB-INF/classes/"
   :library-path "war/WEB-INF/lib/"
 		

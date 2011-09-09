@@ -1,5 +1,5 @@
-(ns com.cyrusinnovation.mail-scraper.template-utilities
-	(:require [clojure.string :as string])
+(ns com.cyrusinnovation.mail-scraper.utils.template-utils
+  (:use com.cyrusinnovation.mail-scraper.utils.dispatch-utils)
   (:require [net.cgrand.enlive-html :as html]))
 
 (defn template-name [action-name]
@@ -7,15 +7,6 @@
 
 (defn template-path [action-name]
 	(str "/WEB-INF/templates/" (template-name action-name) ".html"))
-
-(defn servlet-path-from [request]
-	(.getServletPath request))
-
-(defn real-path-from-context [servlet path]
-	(.getRealPath (.getServletContext servlet) path))
-
-(defn action-name-from [request]
-	(string/replace (servlet-path-from request) "/" ""))
 
 (defn template-file [servlet template-path]
   (new java.io.File (real-path-from-context servlet template-path)))

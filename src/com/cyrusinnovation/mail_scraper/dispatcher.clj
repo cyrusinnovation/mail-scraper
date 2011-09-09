@@ -1,5 +1,5 @@
-(ns com.cyrusinnovation.mail-scraper.template-renderer
-    (:use com.cyrusinnovation.mail-scraper.template-utilities)
+(ns com.cyrusinnovation.mail-scraper.dispatcher
+    (:use com.cyrusinnovation.mail-scraper.utils.dispatch-utils)
     (:use com.cyrusinnovation.mail-scraper.handlers.report-handler)
     (:gen-class :extends javax.servlet.http.HttpServlet))
 
@@ -8,8 +8,8 @@
 (defn action-symbol [action-name]
   (symbol (str "com.cyrusinnovation.mail-scraper.handlers." action-name "-handler/" action-name)))
 
-(defmacro dispatch [this action-name]
-  `((eval (action-symbol ~action-name)) ~this))
+(defmacro dispatch [action-name servlet request response]
+  `((eval (action-symbol ~action-name)) ~servlet ~request ~response))
 
 (defn set-body [response html]
     (let [writer (.getWriter response)]
@@ -17,5 +17,5 @@
 
 (defn -service [this request response]
   (set-body response
-            (dispatch this (action-name-from request)))
+            (dispatch (action-name-from request) this request response))
     (.setStatus response HttpServletResponse/SC_OK))
