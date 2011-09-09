@@ -17,7 +17,8 @@
   :dev-dependencies [[midje "1.2.0"]
 										 [lein-midje "1.0.3"] 
 										 [org.seleniumhq.selenium/selenium-java "2.5.0"]
-										 [com.google.appengine/appengine-testing ~appserver-version]]
+										 [com.google.appengine/appengine-testing ~appserver-version]
+                     [com.google.appengine/appengine-api-stubs ~appserver-version]]
 	
   :aot [com.cyrusinnovation.mail-scraper.dispatcher com.cyrusinnovation.mail-scraper.handlers.report-handler com.cyrusinnovation.mail-scraper.handlers.events-handler]
   :compile-path "war/WEB-INF/classes/"
