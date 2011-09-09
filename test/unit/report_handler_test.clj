@@ -6,4 +6,5 @@
 (fact
  (handler/report ...servlet... ...request... ...response...) => "<html>\n<head><title>Networking Events</title></head>\n</html>"
  (provided
-    (utils/real-path-from-context ...servlet... "/WEB-INF/templates/report-template.html") => "test/unit/test-template.html"))
+  (utils/real-path-from-context ...servlet... "/WEB-INF/templates/report-template.html") => "test/unit/test-template.html"
+  (handler/fetch-events) => [{:title "TestTitle"}]))
