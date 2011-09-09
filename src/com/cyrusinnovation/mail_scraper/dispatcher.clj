@@ -1,6 +1,6 @@
 (ns com.cyrusinnovation.mail-scraper.dispatcher
-    (:use com.cyrusinnovation.mail-scraper.utils.dispatch-utils)
-    (:use com.cyrusinnovation.mail-scraper.handlers.report-handler)
+    (:require com.cyrusinnovation.mail-scraper.handlers.report-handler)
+    (:require [com.cyrusinnovation.mail-scraper.utils.dispatch-utils :as utils])
     (:gen-class :extends javax.servlet.http.HttpServlet))
 
 (import javax.servlet.http.HttpServletResponse)
@@ -17,5 +17,5 @@
 
 (defn -service [this request response]
   (set-body response
-            (dispatch (action-name-from request) this request response))
+            (dispatch (utils/action-name-from request) this request response))
     (.setStatus response HttpServletResponse/SC_OK))
