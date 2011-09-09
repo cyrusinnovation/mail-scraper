@@ -12,8 +12,9 @@
   (new java.io.File (real-path-from-context servlet template-path)))
 
 (defmacro prepare-template [servlet action-name template-signature & template-mapping-forms]
-  `(html/deftemplate
-     ~(symbol (template-name action-name))
-     (template-file ~servlet (template-path ~action-name))
-		 ~template-signature
-     ~@template-mapping-forms))
+  `(or (resolve (symbol (template-name ~action-name)))
+       (html/deftemplate
+         ~(symbol (template-name action-name))
+         (template-file ~servlet (template-path ~action-name))
+         ~template-signature
+         ~@template-mapping-forms)))

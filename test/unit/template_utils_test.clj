@@ -16,9 +16,11 @@
 
 (fact
  (macroexpand-1 '(prepare-template ...servlet... "action" [substitution-values] [.title] (html/content (:key substitution-values))))
- => '(net.cgrand.enlive-html/deftemplate
-       action-template
-       (com.cyrusinnovation.mail-scraper.utils.template-utils/template-file ...servlet...
-                                                                          (com.cyrusinnovation.mail-scraper.utils.template-utils/template-path "action"))
-       [substitution-values]
-       [.title] (html/content (:key substitution-values))))
+ => '(clojure.core/or (clojure.core/resolve (clojure.core/symbol (com.cyrusinnovation.mail-scraper.utils.template-utils/template-name "action")))
+                      (net.cgrand.enlive-html/deftemplate
+                        action-template
+                        (com.cyrusinnovation.mail-scraper.utils.template-utils/template-file
+                                ...servlet...
+                                (com.cyrusinnovation.mail-scraper.utils.template-utils/template-path "action"))
+                        [substitution-values]
+                        [.title] (html/content (:key substitution-values)))))
