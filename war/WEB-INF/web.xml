@@ -6,7 +6,7 @@
          version="2.5">
     <servlet>
         <servlet-name>report-renderer</servlet-name>
-        <servlet-class>com.cyrusinnovation.mail_scraper.template_renderer</servlet-class>
+        <servlet-class>com.cyrusinnovation.mail_scraper.dispatcher</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>report-renderer</servlet-name>
