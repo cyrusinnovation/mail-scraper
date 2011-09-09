@@ -10,6 +10,7 @@
                  [org.clojure/clojure-contrib "1.2.0"]
 								 [javax.servlet/servlet-api "2.5"]
                  [com.google.appengine/appengine-tools-sdk ~appserver-version]
+                 [com.google.appengine/appengine-api-1.0-sdk ~appserver-version]
 								 [enlive "1.0.0"]]
 
 	;; Add lein-gae-serverctl and lein-gae-uat when pluginized, and remove scripts from leiningen directory
@@ -18,7 +19,7 @@
 										 [org.seleniumhq.selenium/selenium-java "2.5.0"]
 										 [com.google.appengine/appengine-testing ~appserver-version]]
 	
-  :aot [com.cyrusinnovation.mail-scraper.dispatcher]
+  :aot [com.cyrusinnovation.mail-scraper.dispatcher com.cyrusinnovation.mail-scraper.handlers.report-handler com.cyrusinnovation.mail-scraper.handlers.events-handler]
   :compile-path "war/WEB-INF/classes/"
   :library-path "war/WEB-INF/lib/"
 		
