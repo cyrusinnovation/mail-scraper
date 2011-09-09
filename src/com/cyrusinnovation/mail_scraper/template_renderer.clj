@@ -8,7 +8,7 @@
 (defn action-symbol [action-name]
   (symbol (str "com.cyrusinnovation.mail-scraper.handlers." action-name "-handler/" action-name)))
 
-(defmacro action [this action-name]
+(defmacro dispatch [this action-name]
   `((eval (action-symbol ~action-name)) ~this))
 
 (defn set-body [response html]
@@ -17,5 +17,5 @@
 
 (defn -service [this request response]
   (set-body response
-            (action this (action-name-from request)))
+            (dispatch this (action-name-from request)))
     (.setStatus response HttpServletResponse/SC_OK))
