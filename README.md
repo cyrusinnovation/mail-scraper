@@ -24,12 +24,16 @@ After that, you can run:
 
         $ lein gae stop  # Stops the development appserver
 
-        $ lein uat 		 # Starts the dev server, runs the end-to-end Selenium tests, and stops the server.
+        $ lein test 		 # Starts the dev server, runs the end-to-end Selenium tests, and stops the server.
 						 # For this you also need to add the Firefox binary to your PATH
 						 # E.g.,  $>	export PATH=$PATH:/Applications/Firefox.app/Contents/MacOS
 
 The shell scripts that start and stop the server currently presuppose some flavor
 of UNIX, and have only been tested on OS X.
+
+Use "lein test" only for running the entire test suite. To run single unit tests from Leiningen, use
+
+        $ lein midje ns.qualified.test.name
 
 Development
 =====
