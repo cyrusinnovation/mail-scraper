@@ -13,7 +13,7 @@
                  [com.google.appengine/appengine-api-1.0-sdk ~appserver-version]
 								 [enlive "1.0.0"]]
 
-	;; Add lein-gae-serverctl and lein-gae-uat when pluginized, and remove scripts from leiningen directory
+	;; Add lein-gae-serverctl when pluginized, and remove script from leiningen directory
   :dev-dependencies [[midje "1.2.0"]
 										 [lein-midje "1.0.3"] 
 										 [org.seleniumhq.selenium/selenium-java "2.5.0"]
@@ -23,17 +23,11 @@
   :aot [com.cyrusinnovation.mail-scraper.dispatcher com.cyrusinnovation.mail-scraper.handlers.report-handler com.cyrusinnovation.mail-scraper.handlers.events-handler]
   :compile-path "war/WEB-INF/classes/"
   :library-path "war/WEB-INF/lib/"
-		
+  
+	:hooks [leiningen.hooks.selenium-test-hook]
+  :implicit-hooks false
 	:gae-appserver-sdk-install-path ~(str "/usr/local/appengine-java-sdk-" appserver-version)
 	:gae-appserver-address "localhost"
 	:gae-appserver-port "8080"
   ))
 
-;; Running lein test will now start the server beforehand and stop it afterwards.
-;; In addition it will use lein-midje to run the tests, to generate better reports.
-(require '(leiningen test [gae :as server] [midje :as midje]))
-(add-hook #'leiningen.test/test
-          (fn [test project & args]
-            (server/dev-appserver project)
-            (midje/midje project)
-            (server/kill-appserver)))

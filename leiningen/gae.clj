@@ -1,5 +1,5 @@
 (ns leiningen.gae
-  (use [lancet.core :only [exec]])) ;; The exec ant task.
+  (:use [lancet.core :only [exec]])) ;; The exec ant task.
 
 (defn usage []
 	(println "Call this target as \"lein server start\" or \"lein server stop\"")

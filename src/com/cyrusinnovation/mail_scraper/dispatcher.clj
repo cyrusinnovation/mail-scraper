@@ -1,7 +1,6 @@
 (ns com.cyrusinnovation.mail-scraper.dispatcher
   ;; You need to include yur handlers here, not just drop them in the handlers directory.
-  (:require com.cyrusinnovation.mail-scraper.handlers.report-handler)
-  (:require com.cyrusinnovation.mail-scraper.handlers.events-handler)
+  (:require (com.cyrusinnovation.mail-scraper.handlers report-handler events-handler))
   (:require [com.cyrusinnovation.mail-scraper.utils.dispatch-utils :as utils])
   (:gen-class :extends javax.servlet.http.HttpServlet))
 
