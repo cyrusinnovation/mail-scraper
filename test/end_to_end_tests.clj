@@ -11,21 +11,6 @@
 (import org.apache.http.client.entity.UrlEncodedFormEntity)
 (import org.apache.http.util.EntityUtils)
 
-; This only works for local persistence tests.
-;; (import '(com.google.appengine.tools.development.testing
-;;           LocalDatastoreServiceTestConfig
-;;           LocalServiceTestHelper))
-;; (background (around :facts (let [config (new LocalDatastoreServiceTestConfig)
-;;                                  helper (new LocalServiceTestHelper
-;;                                              (into-array LocalDatastoreServiceTestConfig [config]))]
-;;                              (.setUp helper) ?form (.tearDown helper))))
-
-
-;; This apparently only works on the python server
-;; (background (before :facts (post "http://localhost:8080/_ah/admin/interactive/execute"
-;;                                  {"code" "from google.appengine.ext import db\ndb.delete(db.Query())"})))
-
-
 (defn http-execute [client method]
   (let [response (.execute client method)]
     (.getEntity response)))
@@ -62,13 +47,11 @@
                                  (-> (.switchTo driver) (.alert) (.accept)))
                                (catch Throwable t :no-data-to-clear))))
                       
-;; Need to empty the database before these tests run
 (fact "Page with no events results from empty database"
 			(.get driver "http://localhost:8080/report")
 			(-> (.findElement driver (By/tagName "title")) (.getText)) => "Networking Events"
 			(-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "There are no networking events at this time.")
 
-;; Redo this using HTTP Post 
 (fact "The application persists and retrieves an event"
   (let [timestamp (str (new java.util.Date))]
 			(.get driver (str "http://localhost:8080/events?name=An%20Event%20with%20a%20%3Ctag%3E%20at%20" timestamp))
