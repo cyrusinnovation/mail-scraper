@@ -18,7 +18,7 @@
 (defn stringify-response [response-entity]
   (cond
    (nil? response-entity) ""
-   (> 500000 (.getContentLength response-entity)) (throw (new RuntimeException "Content length too large."))
+   (< 500000 (.getContentLength response-entity)) (throw (new RuntimeException "Content length too large."))
    :else (EntityUtils/toString response-entity)))
   
 (defn post [url key-value-pairs]
@@ -58,5 +58,13 @@
 			(-> (.findElement driver (By/tagName "title")) (.getText)) => "Submitted"
 			(.get driver "http://localhost:8080/report")
 			(-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => (str "An Event with a <tag> at " timestamp)))
+
+(fact "The application can receive an event via HTTP post, and we can test HTTP posts"
+  (.get driver "http://localhost:8080/report")
+  (-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "There are no networking events at this time."
+  (post "http://localhost:8080/events" {"name" "An event submitted via POST."}) => (contains "<title>Submitted</title>")
+  (.get driver "http://localhost:8080/report")
+  (-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "An event submitted via POST.")
+  
 
 (.quit driver))
