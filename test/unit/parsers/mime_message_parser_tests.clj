@@ -1,6 +1,7 @@
 (ns unit.parsers.mime-message-parser-tests
   (:use midje.sweet)
-  (:require [com.cyrusinnovation.mail-scraper.parsers.mime-message-parser :as parser]))
+  (:require [com.cyrusinnovation.mail-scraper.parsers.mime-message-parser :as parser])
+  (:require [clojure.contrib.string :as string]))
 
 (import java.io.FileInputStream)
 (import java.util.Calendar)
@@ -51,8 +52,11 @@
 (fact "The record we create from a MIME message contains the HTML"
   (:html (parser/parse mime-message)) => (contains "<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell"))
 
-;; (fact "The record we create from a MIME message contains the original message"
-;;   (:source (parser/parse mime-message)) => (contains "<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell"))
+(fact "The record we create from a MIME message contains the original message"
+  (let [source (string/split-lines (:source (parser/parse mime-message)))]
+    (first source) => "Delivered-To: nul@bitbucket.net"
+    (second source) => "Received: by 10.150.95.9 with SMTP id s9cs132021ybb;"
+    (last source) => "--_----------=_MCPart_352594967--"))
 
 (fact "We get a correct string for a message's text if the message is not multipart."
   (let [session (Session/getDefaultInstance (new Properties))

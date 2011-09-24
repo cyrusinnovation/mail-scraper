@@ -1,9 +1,11 @@
-(ns com.cyrusinnovation.mail-scraper.parsers.mime-message-parser)
+(ns com.cyrusinnovation.mail-scraper.parsers.mime-message-parser
+  (:require [clojure.contrib.string :as string]))
+
 (import java.util.Properties)
 (import javax.mail.Session)
 (import '(javax.mail.internet InternetAddress MimeMessage))
 
-(defrecord Message [from-address sent-date subject text html])
+(defrecord Message [from-address sent-date subject text html source])
 
 (defn mime-message-from-stream [input-stream]
    (let [session (Session/getDefaultInstance (new Properties))]
@@ -37,10 +39,21 @@
 (defn html-content [mime-message]
   (let [html-parts (body-parts-of-type mime-message "text/html")]
     (extract-text html-parts)))
-  
+
+(defn string-from-input-stream [input-stream-goddammit]
+  (let [scanner (new java.util.Scanner input-stream-goddammit)]
+    (.useDelimiter scanner "\\A")  ; beginning of input boundary character as tokenizer, to get the whole thing.
+    (.next scanner)))
+
+(defn message-source [mime-message]
+  (let [headers (string/join "\n" (enumeration-seq (.getAllHeaderLines mime-message)))
+        body (string-from-input-stream (.getInputStream mime-message))]
+    (str headers body)))
+
 (defn parse [mime-message]
   (Message. (from-address mime-message)
             (.getSentDate mime-message)
             (.getSubject mime-message)
             (plain-text mime-message)
-            (html-content mime-message)))
+            (html-content mime-message)
+            (message-source mime-message)))
