@@ -1,0 +1,863 @@
+Delivered-To: nul@bitbucket.net
+Received: by 10.150.95.9 with SMTP id s9cs132021ybb;
+        Tue, 6 Sep 2011 05:03:35 -0700 (PDT)
+Received: by 10.147.11.15 with SMTP id o15mr3448588yai.23.1315310614969;
+        Tue, 06 Sep 2011 05:03:34 -0700 (PDT)
+Return-Path: <SRS0+sxX7=3X=thestartupdigest.com=frank.denbow@mxfwd-1.rollernet.us>
+Received: from mxfwd1.rollernet.us (mxfwd1.rollernet.us [208.79.241.114])
+        by mx.google.com with ESMTPS id c7si4045358anp.88.2011.09.06.05.03.33
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Tue, 06 Sep 2011 05:03:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of SRS0+sxX7=3X=thestartupdigest.com=frank.denbow@mxfwd-1.rollernet.us designates 208.79.241.114 as permitted sender) client-ip=208.79.241.114;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of SRS0+sxX7=3X=thestartupdigest.com=frank.denbow@mxfwd-1.rollernet.us designates 208.79.241.114 as permitted sender) smtp.mail=SRS0+sxX7=3X=thestartupdigest.com=frank.denbow@mxfwd-1.rollernet.us; dkim=pass header.i=frank.denbow=3Dthestartupdigest.com@mail267.us2.mcsv.net
+Received: from mail.rollernet.us (mail.rollernet.us [208.79.240.2])
+	by mxfwd1.rollernet.us (Postfix) with ESMTP id CD626C02AE4E
+	for <nul@bitbucket.net>; Tue,  6 Sep 2011 05:03:32 -0700 (PDT)
+X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on mail.rollernet.us
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.6 required=5.0 tests=DKIM_SIGNED,DKIM_VALID,
+	HTML_MESSAGE,MIME_QP_LONG_LINE,RCVD_IN_DNSWL_NONE,RCVD_IN_IADB_DK,
+	RCVD_IN_IADB_LISTED,RCVD_IN_IADB_MI_CPR_MAT,RCVD_IN_IADB_RDNS,
+	RCVD_IN_IADB_SENDERID,RCVD_IN_IADB_SPF,RCVD_IN_IADB_UT_CPR_MAT,
+	RP_MATCHES_RCVD,URIBL_GREY autolearn=disabled version=3.3.1
+X-Envelope-From: bounce-452601-1072906-nul=bitbucket.net@mail267.us2.mcsv.net
+Received: from mail267.us2.mcsv.net (mail267.us2.mcsv.net [173.231.138.204])
+	by mail.rollernet.us (Postfix) with ESMTP
+	for <some.address@some.com>; Tue,  6 Sep 2011 05:03:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=k1; d=mail267.us2.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-Unsubscribe:Sender:Content-Type:MIME-Version; i=frank.denbow=3Dthestartupdigest.com@mail267.us2.mcsv.net;
+ bh=30/EVs0bQpEU8+jnEv/AlKomTFY=;
+ b=mgzbCCSJQPaSeC/z0UtTTESGdDBBpD20z+F2Cv98P/NTq9iCodCcE2gwJN45YU90oZxKwEcjBV5E
+   tV6W3V38npA72CIJc0EWunYZ4P89DoM8UM+IBk1oruSX/Xf3hXe57Ym2mG7UTtSmE/w1wJpsu3DJ
+   RgDr8a53L7EXN1DWe60=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=k1; d=mail267.us2.mcsv.net;
+ b=vInOf3HLCYAdZw4ahQX4vPYsXY3MwqRL9sZAMKCXl3ZP4lgCXaHqNrC6mUT7fYKyooezNVEjz69I
+   KgiL7wOZ1UpAczqenqo07VsLyeN+W9cgq8vXnYI0iBgqEKXvkiaYPoEjvp2fd5xRx/gQJJnwNGHj
+   38D+mztYF3lFksE1TLc=;
+Received: from (127.0.0.1) by mail267.us2.mcsv.net (PowerMTA(TM) v3.5r16) id hco60m0ik18q for <some.address@some.com>; Tue, 6 Sep 2011 08:03:21 -0400 (envelope-from <bounce-452601-1072906-nul=bitbucket.net@mail267.us2.mcsv.net>)
+Subject: NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell, Video Hackday
+From: "Frank Denbow" <frank.denbow@thestartupdigest.com>
+Reply-To: "Frank Denbow" <frank.denbow@thestartupdigest.com>
+To: <some.address@some.com>
+Date: Tue, 6 Sep 2011 08:03:21 -0400
+Message-ID: <92be899ef5a892c60b4a6cd9740e4668758.20110906120310@mail267.us2.mcsv.net>
+X-Mailer: MailChimp Mailer - **CID52ce4a044d40e4668758**
+X-Campaign: mailchimp92be899ef5a892c60b4a6cd97.52ce4a044d
+X-campaignid: mailchimp92be899ef5a892c60b4a6cd97.52ce4a044d
+x-im: 38509-52ce4a044d
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=492be899ef7a892c60b4a6cd97&id=52ce7a044d&e=40e4678758
+x-accounttype: pd
+List-Unsubscribe: <mailto:unsubscribe-92be899ef5a892c60b4a6cd97-52ce4a044d-40e4668758@mailin1.us2.mcsv.net?subject=unsubscribe>, <http://startupdigest.us1.list-manage.com/unsubscribe?u=492be899ef5a892c70b4a6cd97&id=f13023b775&e=40e4668778&c=52ce4a074d>
+Sender: "Frank Denbow" <frank.denbow=thestartupdigest.com@mail267.us2.mcsv.net>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_352594967"
+MIME-Version: 1.0
+Received-SPF: pass (mail267.us2.mcsv.net: 173.231.138.204 is authorized to use 'bounce-452601-1072906-nul=bitbucket.net@mail267.us2.mcsv.net' in 'mfrom' identity (mechanism 'mx' matched)) receiver=mail.rollernet.us; identity=mfrom; envelope-from="bounce-452601-1072906-nul=bitbucket.net@mail267.us2.mcsv.net"; helo=mail267.us2.mcsv.net; client-ip=173.231.138.204
+X-Rollernet-Abuse: Processed by Roller Network Mail Services. See our abuse policy at http://rollernet.us/abuse.php
+X-Rollernet-Tracking: Tracking ID 2bfe.4e660c0a.c7f24.0
+X-Rollernet-FwdTo: default->nul@bitbucket.net
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_352594967
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+_NYC StartupDigest_
+Life is too short to work at a boring company. Privately see your options=
+ to
+join the best startups in NYC [1]here.
+  Links:
+    1. http://startupdigest.com/vip
+
+Good morning NYC startups!
+
+Check out the new coworking space in Hoboken [2]Mission50 and while you=
+=E2=80=99re
+there  you  can  think of your Hack-for-Good submission for LetsGive=E2=80=
+=99s
+[3]Hack-for-Good contest.
+  Links:
+    2. http://mission50opens.eventbrite.com
+    3. http://www.letgive.com/hackforgood
+
+Want your startup included in the NYC StartupDigest? Tell us what you're
+working on [4]here.
+  Links:
+    4. http://nycstartupdigest.wufoo.com/forms/get-your-startup-included-i=
+n-the-nyc-digest
+
+For  newcomers:  The  NYC  StartupDigest is an events list, created by
+entrepreneurs for entrepreneurs, that is laser-focused on the needs of
+startups in NYC. Please send feedback to
+[5]frank.denbow@thestartupdigest.[6]com.
+  Links:
+    5. mailto:frank.denbow@thestartupdigest.com
+    6. mailto:frank.denbow@thestartupdigest.com
+
+- Frank
+
+_NYC StartupDigest is curated by:_
+[7][8]Frank Denbow - Founder, [9]Songsicle
+  Links:
+    7. http://twitter.com/carterac
+    8. http://twitter.com/frankdenbow
+    9. http://songsicle.com
+
+_NYC StartupDigest is supported exclusively by:_
+[10]Silicon Valley Bank (SVB) has been working with the startup community
+for almost 30 years.  The SVB NYC office has been running for 10 years and
+we work with many NYC startups.  If you want to learn more about how we ca=
+n
+help your startup, get in touch with Shai Goldman at [11]sgoldman@svb.com=
+=2E
+  Links:
+    10. http://www.svb.com/accelerator
+    11. mailto:sgoldman@svb.com
+
+_What's Going On in the NYC Startup Community:_
+
+_Tuesday, September 6_
+  _________________________________________________________________
+
+[12]Hack and Tell: Don't recruit me, bro!
+6:30pm at Meetup HQ, 632 Broadway, 3rd Floor
+  Links:
+    12. http://www.meetup.com/hack-and-tell/events/30722941
+
+You get 5 minutes to show off an amazing piece of tech you created.
+  _________________________________________________________________
+
+[13]NY Tech Meetup
+7pm at NYU Skirball Center for the Performing Arts, 566 Laguardia Place
+  Links:
+    13. http://www.meetup.com/ny-tech/events/28102661
+
+The largest gathering of techies in NYC.
+  _________________________________________________________________
+
+[14]Intro to Android Development
+8pm at General Assembly, 902 Broadway, 4th Floor
+  Links:
+    14. http://gaandroid2.eventbrite.com
+
+Get your feet wet in the world of Android. Basic understanding of java is=
+ a
+plus.
+
+_Wednesday, September 7_
+  _________________________________________________________________
+
+[15]An Insider's Guide to Angel Investing
+6pm at General Assembly, 902 Broadway, 4th Floor
+  Links:
+    15. http://gaangelinvesting.eventbrite.com
+
+Learn about the angel investment process from a NY angel.
+  _________________________________________________________________
+
+[16]New York Flex Meetup
+6:30pm at CreativeCloud, 160 Varick St, 12th Floor
+  Links:
+    16. http://www.meetup.com/New-York-Flex-Meetup/events/24655651
+
+An evening of hands-on mobile development.
+
+_Thursday, September 8_
+  _________________________________________________________________
+
+[17]Tech Drinkup
+6pm at G 50 Bar and Grill, 208 E 50th St
+  Links:
+    17. http://techdrinkup9811.eventbrite.com
+
+What better way to kick off fashion week?
+  _________________________________________________________________
+
+[18]The Future of Mobile Marketing: Where are we headed?
+6pm at The Morris + King Company, 101 5th Ave, 8th Floor
+  Links:
+    18. http://idgmobilemedia.eventbrite.com
+
+Learn how to best utilize marketing strategies in the mobile industry.
+  _________________________________________________________________
+
+[19]Investor Feedback Forum and Pitch Showdown
+6:30pm at Microsoft, 1290 6th Ave, 6th Floor
+  Links:
+    19. http://ultralightstartups.eventbrite.com
+
+Listen to 10 companies pitch to a panel of investors and advisors.
+  _________________________________________________________________
+
+[20]Negotiating: Essential Skills for Entrepreneurs
+7pm at New Work City, 412 Broadway, 2nd Floor
+  Links:
+    20. http://nwcnegotiating.eventbrite.com
+
+Learn how to negotiate at all levels for your startup.
+
+_Saturday, September 10_
+  _________________________________________________________________
+
+[21]Video Hack Day
+9am at General Assembly, 902 Broadway, 4th Floor
+  Links:
+    21. http://www.eventbrite.com/event/2072060589
+
+A day of hacking video like NY has never seen.
+  _________________________________________________________________
+
+[22]Open Video Conference
+9:30am at New York Law School, 185 Broadway
+  Links:
+    22. http://openvideoconference.org
+
+Learn about open video from a legal perspective.
+  _________________________________________________________________
+
+[23]NYC Startup Jog
+West Side Highway
+  Links:
+    23. http://www.facebook.com/groups/120874574674714
+
+Like to run? Join this new group!
+
+_What's Going On Next Week_:
+
+_Monday, September 12_
+  _________________________________________________________________
+
+6pm - [24]Rocking out on the Terrace Round 3
+7pm - [25]Founders @FAIL: Ted Morgan, Founder of Skyhook Wireless
+  Links:
+    24. http://terraceparty3.eventbrite.com
+    25. http://tedmorganatfailga.eventbrite.com
+
+_Tuesday, September 13_
+  _________________________________________________________________
+
+7pm - [26]TechStars NYC on Bloomberg TV Premiere Party
+7pm - [27]Inside the Lean Founders Studio with San Kim & Fred Wilson
+  Links:
+    26. http://tsnycpremierpublic.eventbrite.com
+    27. http://www.meetup.com/lean-startup/events/31681192
+
+_Wednesday, September 14_
+  _________________________________________________________________
+
+2pm - [28]Design Studio Workshop
+6pm - [29]Covestor & DailyWorth Womens' Event
+6pm - [30]Intro to Microcontroller Programming
+  Links:
+    28. http://designstudio.eventbrite.com
+    29. http://covestordailyworth.eventbrite.com
+    30. http://hardwarehacking.eventbrite.com
+
+_Thursday, September 15_
+  _________________________________________________________________
+
+6pm - [31]Data, Design, Diabetes Innovation Challenge Demo Day
+  Links:
+    31. http://datadesigndiabetes.eventbrite.com
+
+_Friday, September 16_
+  _________________________________________________________________
+
+8pm - [32]New Work City Third Anniversary Party
+  Links:
+    32. http://newyork.garysguide.org/events/sw90v61/New-Work-City-Third-A=
+nniversary-Party
+
+_Saturday, September 17_
+  _________________________________________________________________
+
+10am - [33]Maker Faire New York
+  Links:
+    33. http://makerfaire.com/newyork/2011
+
+_Top Upcoming NYC Startup Events_
+  _________________________________________________________________
+
+Sep 20 - [34]Code Meet Print NY
+Sep  23  - [35]SMASH Summit with Dave McClure + 500 Startups (use code
+StartupDigest for a special discount)
+Oct 7 - [36]How to Build Great Products
+Nov 7-9 - [37]Future of Web Design
+  Links:
+    34. http://www.meetup.com/cmp-ny/events/29964471
+    35. http://smashsummit.com
+    36. http://productdevelopmentseptember2011.eventbrite.com
+    37. http://futureofwebdesign.com/new-york-2011
+
+_StartupDigest VIP_
+  _________________________________________________________________
+
+Life is too short to work at a boring company. Privately see your options=
+ to
+join the best startups in NYC [38]here.
+  Links:
+    38. http://startupdigest.com/vip
+
+You are receiving this email because you are an active member of the NYC
+startup community.
+
+To help the community grow,
+[39]forward this email to your friends who want to start or join a startu=
+p
+in New York City.
+  Links:
+    39. http://us1.forward-to-friend.com/forward?u=43D92be879ef5a892c60b4a6=
+cd97&id=3D52ce7a044d&e=3D40e4678758
+
+[40]StartupDigest is a registered trademark of NextDigest, Inc. Copyright
+2011. All rights reserved.
+  Links:
+    40. http://startupdigest.com
+
+Sent to some.address@some.com =E2=80=94 [41]why did I get this?
+[42]unsubscribe from this list | [43]update subscription preferences
+NextDigest, Inc. &middot; 2015 Edgewood Drive &middot; Palo Alto, CA 94303
+  Links:
+    41. http://startupdigest.us1.list-manage.com/about?u=43D92be799ef5a892c=
+60b4a6cd97&id=3Df13073b675&e=3D40e4668758&c=3D52c74a044d
+    42. http://startupdigest.us1.list-manage.com/unsubscribe?u=43D97be899ef=
+5a892c60b4a6cd97&id=3Df13023b775&e=3D40e4668758&c=3D57ce4a044d
+    43. http://startupdigest.us1.list-manage.com/profile?u=43D97be899ef5a89=
+2c60b4a6cd97&id=3Df13027b675&e=3D40e4667758
+--_----------=_MCPart_352594967
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+=09<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell=
+, Video Hackday</title>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-=
+8">
+=09
+<style type=3D"text/css">
+=09=09body,.container{
+=09=09=09background-color:#ffffff;
+=09=09}
+=09=09.headerContainer{
+=09=09=09padding:10px;
+=09=09=09background-color:#ffffff;
+=09=09=09width:600px;
+=09=09}
+=09=09.headerText{
+=09=09=09font-size:12px;
+=09=09=09font-family:Courier New;
+=09=09=09font-weight:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09.mainContainer{
+=09=09=09padding:10px;
+=09=09=09background-color:#ffffff;
+=09=09=09width:600px;
+=09=09}
+=09=09.mainText{
+=09=09=09text-align:left;
+=09=09=09font-size:14px;
+=09=09=09font-family:Courier New;
+=09=09=09line-height:150%;
+=09=09=09font-weight:normal;
+=09=09}
+=09=09.mainText .title{
+=09=09=09font-size:20px;
+=09=09=09font-weight:bold;
+=09=09=09color:#CC6600;
+=09=09=09font-family:Courier New;
+=09=09=09line-height:110%;
+=09=09}
+=09=09.mainText .subTitle{
+=09=09=09font-size:16px;
+=09=09=09font-weight:normal;
+=09=09=09color:#666666;
+=09=09=09font-family:Courier New;
+=09=09=09font-style:italic;
+=09=09}
+=09=09.footerContainer{
+=09=09=09padding:10px;
+=09=09=09border-top:0px none #999999;
+=09=09=09width:600px;
+=09=09}
+=09=09.footerText{
+=09=09=09font-size:12px;
+=09=09=09font-family:Courier New;
+=09=09=09line-height:100%;
+=09=09=09text-align:left;
+=09=09=09font-weight:normal;
+=09=09}
+=09=09a,a:link,a:visited{
+=09=09=09color:#0000ff;
+=09=09=09text-decoration:underline;
+=09=09=09font-weight:normal;
+=09=09}
+=09=09.headerText a{
+=09=09=09color:#006600;
+=09=09=09text-decoration:underline;
+=09=09=09font-weight:normal;
+=09=09}
+=09=09.footerText a{
+=09=09=09color:#006600;
+=09=09=09text-decoration:underline;
+=09=09=09font-weight:normal;
+=09=09}
+=09=09.headerBar{
+=09=09=09padding:10px;
+=09=09=09background-color:#000;
+=09=09}
+=09=09.headerBarText{
+=09=09=09font-family:Arial;
+=09=09}
+=09=09.headerBarText a{
+=09=09=09color:#000000;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09.headerTop a{
+=09=09=09color:#333333;
+=09=09}
+=09=09a,a:link,a:visited{
+=09=09=09color:#006600;
+=09=09}
+</style></head>
+<body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=3D"0=
+" offset=3D"0" id=3D"richtext" style=3D"background-color: #ffffff;">
+<div class=3D"container" style=3D"background-color: #ffffff;">
+    <div class=3D"headerContainer" style=3D"padding: 10px;background-color=
+: #ffffff;width: 600px;">
+        <div class=3D"headerText" style=3D"font-size: 12px;font-family: Co=
+urier New;font-weight: normal;text-align: left;"><span style=3D"font-size:=
+ 14px;"><span style=3D"font-family: verdana,geneva,sans-serif;"><span styl=
+e=3D"color: rgb(0, 0, 0);"><b>NYC<span style=3D"color: rgb(0, 102, 0);"> S=
+tartup</span>Digest</b></span></span></span><br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">Life is too short to work at a boring company. Privately se=
+e your options to join the best startups in NYC <a href=3D"http://startupd=
+igest.us1.list-manage.com/track/click?u=43D92be879ef5a892c60b4a6cd97&id=3Dd=
+5f35c6710&e=3D40e4667758" style=3D"color: #006600;text-decoration: underl=
+ine;font-weight: normal;">here</a>.</span></span><br>
+<br>
+</div>
+    </div>
+    <div class=3D"headerImage"></div>
+    <div class=3D"mainContainer" style=3D"padding: 10px;background-color:=
+ #ffffff;width: 600px;">
+        <div class=3D"mainText" style=3D"text-align: left;font-size: 14px;=
+font-family: Courier New;line-height: 150%;font-weight: normal;"><span sty=
+le=3D"font-size: 12px;"><span style=3D"font-family: verdana,geneva,sans-se=
+rif;">Good morning NYC startups!</span></span><br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">Check out the new coworking space in Hoboken <a href=3D"htt=
+p://startupdigest.us1.list-manage.com/track/click?u=43D72be899ef5a892c60b4a=
+6cd97&id=3Dc0c7f317d1&e=3D40e4768758" target=3D"_blank" style=3D"color: #=
+006600;text-decoration: underline;font-weight: normal;">Mission50</a> and=
+ while you&rsquo;re there you can think of your Hack-for-Good submission f=
+or LetsGive&rsquo;s <a href=3D"http://startupdigest.us1.list-manage.com/tr=
+ack/click?u=43D92be899ef5a892c70b4a6cd97&id=3Db8177a9bc0&e=3D40e4768758" t=
+arget=3D"_blank" style=3D"color: #006600;text-decoration: underline;font-w=
+eight: normal;">Hack-for-Good</a> contest.<br>
+<br>
+<a href=3D"http://startupdigest.us1.list-manage.com/track/click?u=43D72be89=
+9ef5a892c60b4a6cd97&id=7D1e63f39f8c&e=7D40e4668758" style=3D"color: #0066=
+00;text-decoration: underline;font-weight: normal;">Consmr</a> is our star=
+tup of the week: &quot;Ever walk into a supermarket or drugstore and not k=
+now which product to buy? Consmr is creating a Yelp-style resource for eve=
+ryday products like frozen foods, skin care, organics and more. Sign up <a=
+ href=3D"http://startupdigest.us1.list-manage.com/track/click?u=43D72be899e=
+f5a892c60b4a6cd97&id=7Ddcc05f14a4&e=3D40e4768758" style=3D"color: #006600=
+;text-decoration: underline;font-weight: normal;">here</a> to share your p=
+icks and get recommendations from experts like Gary Vaynerchuk and Men&#39=
+;s Health.&quot; </span></span><span style=3D"font-size: 12px;"><span styl=
+e=3D"font-family: verdana,geneva,sans-serif;">Want your startup mentioned?=
+ Tell us <a href=3D"http://startupdigest.us1.list-manage1.com/track/click?=
+u=3D92be879ef5a892c60b4a6cd97&id=3D9c71103d5e&e=3D40e4678758" style=3D"co=
+lor: #006600;text-decoration: underline;font-weight: normal;">here</a>.</s=
+pan></span><br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">For newcomers: The NYC StartupDigest is an events list, cre=
+ated by entrepreneurs for entrepreneurs, that is laser-focused on the need=
+s of startups in NYC. Please send feedback to <a href=3D"mailto:frank.denb=
+ow@thestartupdigest.com" target=3D"_blank" style=3D"color: #006600;text-de=
+coration: underline;font-weight: normal;">frank.denbow@thestartupdigest.</=
+a></span></span><a href=3D"mailto:frank.denbow@thestartupdigest.com" targe=
+t=3D"_blank" style=3D"color: #006600;text-decoration: underline;font-weigh=
+t: normal;"></a><span style=3D"font-size: 12px;"><span style=3D"font-famil=
+y: verdana,geneva,sans-serif;"><a href=3D"mailto:frank.denbow@thestartupdi=
+gest.com" target=3D"_blank" style=3D"color: #006600;text-decoration: under=
+line;font-weight: normal;">com</a>.<br>
+<br>
+- Frank</span></span><br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><strong>NYC StartupDigest is curated by:</strong><br>
+</span></span><a href=3D"http://startupdigest.us1.list-manage.com/track/cl=
+ick?u=43D92be879ef5a892c60b4a6cd97&id=3Dd0071d512b&e=3D47e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><span=
+ style=3D"font-size: 12px;"><span style=3D"font-family: verdana,geneva,san=
+s-serif;"><img align=3D"left" alt=3D"" border=3D"0" height=3D"48" hspace=
+=3D"2" src=3D"http://gallery.mailchimp.com/92be899ef5a892c60b4a6cd97/image=
+s/Frank_Denbow_frankdenbow_on_Twitter.jpg" style=3D"margin: 2px;" vspace=
+=3D"2" width=3D"48"></span></span></a><span style=3D"font-size: 12px;"><sp=
+an style=3D"font-family: verdana,geneva,sans-serif;"><a href=3D"http://sta=
+rtupdigest.us1.list-manage.com/track/click?u=43D92be879ef5a892c60b4a6cd97&i=
+d=3D69801bc7c7&e=3D40e4678758" style=3D"color: #006600;text-decoration: u=
+nderline;font-weight: normal;">Frank Denbow</a> - Founder, <a href=3D"http=
+://startupdigest.us1.list-manage1.com/track/click?u=43D92be897ef5a892c60b4a=
+6cd97&id=3Da2a2ff768a&e=3D40e4678758" style=3D"color: #006600;text-decora=
+tion: underline;font-weight: normal;">Songsicle</a></span></span><br>
+<br>
+<br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><strong>NYC StartupDigest is supported exclusively by:</str=
+ong><br>
+<img align=3D"left" alt=3D"" border=3D"0" height=3D"45" hspace=3D"3" src=
+=3D"http://gallery.mailchimp.com/92be899ef5a892c60b4a6cd97/images/SVB.jpg"=
+ style=3D"margin: 3px;" vspace=3D"3" width=3D"105"><a href=3D"http://start=
+updigest.us1.list-manage.com/track/click?u=43D92be859ef5a892c60b4a6cd97&id=
+=3Da5b570a816&e=3D40e4667758" style=3D"color: #006600;text-decoration: un=
+derline;font-weight: normal;">Silicon Valley Bank (SVB)</a> has been worki=
+ng with the startup community for almost 30 years.&nbsp; The SVB NYC offic=
+e has been running for 10 years and we work with many NYC startups.&nbsp;=
+ If you want to learn more about how we can help your startup, get in touc=
+h with Shai Goldman at <a href=3D"mailto:sgoldman@svb.com" style=3D"color:=
+ #006600;text-decoration: underline;font-weight: normal;">sgoldman@svb.com=
+</a>.</span></span><br>
+<br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><strong>What&#39;s Going On in the NYC Startup Community:</=
+strong></span></span><br>
+<br>
+<strong><span style=3D"font-size: 12px;"><span style=3D"font-family: verda=
+na,geneva,sans-serif;"> Tuesday, September 6</span></span></strong>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be879ef5a892c60b4a6cd97&id=3Dbabf819e73&e=3D40e4768758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Hack and Tell: Don&#39;t recruit me, bro!</strong></a><br>
+6:30pm at Meetup HQ, 632 Broadway, 3rd Floor<br>
+<br>
+You get 5 minutes to show off an amazing piece of tech you created.</span>=
+</span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage1.com/track/=
+click?u=43D97be899ef5a892c60b4a6cd97&id=3Dda177172f9&e=3D40e4678758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>NY Tech Meetup</strong></a><br>
+7pm at NYU Skirball Center for the Performing Arts, 566 Laguardia Place<br=
+>
+<br>
+The largest gathering of techies in NYC.</span></span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be879ef5a892c60b4a6cd97&id=3Dabf784ccce&e=3D40e4678758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Intro to Android Development</strong></a><br>
+8pm at General Assembly, 902 Broadway, 4th Floor<br>
+<br>
+Get your feet wet in the world of Android. Basic understanding of java is=
+ a plus.<br>
+<br>
+<br>
+<strong>Wednesday, September 7</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be899ef5a872c60b4a6cd97&id=3Db58071116e&e=3D40e4678758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>An Insider&#39;s Guide to Angel Investing</strong></a><br>
+6pm at General Assembly, 902 Broadway, 4th Floor<br>
+<br>
+Learn about the angel investment process from a NY angel.</span></span><br=
+>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage1.com/track/=
+click?u=43D92be899ef5a892c60b4a6cd97&id=3Db45eb4b071&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>New York Flex Meetup</strong></a><br>
+6:30pm at CreativeCloud, 160 Varick St, 12th Floor<br>
+<br>
+An evening of hands-on mobile development.<br>
+<br>
+<br>
+<strong>Thursday, September 8</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be899ef5a892c60b4a6cd97&id=3De80b38832a&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Tech Drinkup</strong></a><br>
+6pm at G 50 Bar and Grill, 208 E 50th St<br>
+<br>
+What better way to kick off fashion week?</span></span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be899ef5a892c60b4a6cd97&id=3D7fd7d6e55a&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>The Future of Mobile Marketing: Where are we headed?</strong></a><br>
+6pm at The Morris + King Company, 101 5th Ave, 8th Floor<br>
+<br>
+Learn how to best utilize marketing strategies in the mobile industry.</sp=
+an></span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage1.com/track/=
+click?u=43D92be899ef5a892c60b4a6cd97&id=3Dc9cb5e85be&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Investor Feedback Forum and Pitch Showdown</strong></a><br>
+6:30pm at Microsoft, 1290 6th Ave, 6th Floor<br>
+<br>
+Listen to 10 companies pitch to a panel of investors and advisors.</span><=
+/span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be899ef5a892c60b4a6cd97&id=3D18a96fe638&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Negotiating: Essential Skills for Entrepreneurs</strong></a><br>
+7pm at New Work City, 412 Broadway, 2nd Floor<br>
+<br>
+Learn how to negotiate at all levels for your startup.<br>
+<br>
+<br>
+<strong>Saturday, September 10</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage2.com/track/=
+click?u=43D92be899ef5a892c60b4a6cd97&id=3Dfcd652a8a6&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Video Hack Day</strong></a><br>
+9am at General Assembly, 902 Broadway, 4th Floor<br>
+<br>
+A day of hacking video like NY has never seen.</span></span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage2.com/track/=
+click?u=43D92be899ef5a892c60b4a6cd97&id=3Def366f433f&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>Open Video Conference</strong></a><br>
+9:30am at New York Law School, 185 Broadway<br>
+<br>
+Learn about open video from a legal perspective.</span></span><br>
+<br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><a href=3D"http://startupdigest.us1.list-manage.com/track/c=
+lick?u=43D92be899ef5a892c60b4a6cd97&id=3D600afcf3dd&e=3D40e4668758" style=
+=3D"color: #006600;text-decoration: underline;font-weight: normal;"><stron=
+g>NYC Startup Jog</strong></a><br>
+West Side Highway<br>
+<br>
+Like to run? Join this new group!</span></span><br>
+<br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><strong>What&#39;s Going On Next Week</strong>:<br>
+<br>
+<strong>Monday, September 12</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">6pm - <a href=3D"http://startupdigest.us1.list-manage2.com/=
+track/click?u=43D92be899ef5a892c60b4a6cd97&id=3Dfb7bc9ab0b&e=3D40e4668758"=
+ style=3D"color: #006600;text-decoration: underline;font-weight: normal;">=
+Rocking out on the Terrace Round 3</a><br>
+7pm - <a href=3D"http://startupdigest.us1.list-manage.com/track/click?u=43D=
+92be899ef5a892c60b4a6cd97&id=3Db3ed9c2d62&e=3D40e4668758" style=3D"color:=
+ #006600;text-decoration: underline;font-weight: normal;">Founders @FAIL:=
+ Ted Morgan, Founder of Skyhook Wireless</a><br>
+<br>
+<br>
+<strong>Tuesday, September 13</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">7pm - <a href=3D"http://startupdigest.us1.list-manage.com/t=
+rack/click?u=43D92be899ef5a892c60b4a6cd97&id=3D6302f1e801&e=3D40e4668758"=
+ style=3D"color: #006600;text-decoration: underline;font-weight: normal;">=
+TechStars NYC on Bloomberg TV Premiere Party</a><br>
+7pm - <a href=3D"http://startupdigest.us1.list-manage.com/track/click?u=43D=
+92be899ef5a892c60b4a6cd97&id=3Dc2359082d3&e=3D40e4668758" style=3D"color:=
+ #006600;text-decoration: underline;font-weight: normal;">Inside the Lean=
+ Founders Studio with San Kim &amp; Fred Wilson</a><br>
+<br>
+<br>
+<strong>Wednesday, September 14</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">2pm - <a href=3D"http://startupdigest.us1.list-manage2.com/=
+track/click?u=43D92be899ef5a892c60b4a6cd97&id=3D62e9d7810d&e=3D40e4668758"=
+ style=3D"color: #006600;text-decoration: underline;font-weight: normal;">=
+Design Studio Workshop</a><br>
+6pm - <a href=3D"http://startupdigest.us1.list-manage1.com/track/click?u=4
+=3D92be899ef5a892c60b4a6cd97&id=3D00ee5e72c9&e=3D40e4668758" style=3D"col=
+or: #006600;text-decoration: underline;font-weight: normal;">Covestor &amp=
+; DailyWorth Womens&#39; Event</a><br>
+6pm - <a href=3D"http://startupdigest.us1.list-manage1.com/track/click?u=4
+=3D92be899ef5a892c60b4a6cd97&id=3D9b0357e057&e=3D40e4668758" style=3D"col=
+or: #006600;text-decoration: underline;font-weight: normal;">Intro to Micr=
+ocontroller Programming</a><br>
+<br>
+<br>
+<strong>Thursday, September 15</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">6pm - <a href=3D"http://startupdigest.us1.list-manage1.com/=
+track/click?u=43D92be899ef5a892c60b4a6cd97&id=3D73117841f0&e=3D40e4668758"=
+ style=3D"color: #006600;text-decoration: underline;font-weight: normal;">=
+Data, Design, Diabetes Innovation Challenge Demo Day</a><br>
+<br>
+<br>
+<strong>Friday, September 16</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">8pm - <a href=3D"http://startupdigest.us1.list-manage.com/t=
+rack/click?u=43D92be899ef5a892c60b4a6cd97&id=3D4a770ae579&e=3D40e4668758"=
+ style=3D"color: #006600;text-decoration: underline;font-weight: normal;">=
+New Work City Third Anniversary Party</a><br>
+<br>
+<br>
+<strong>Saturday, September 17</strong></span></span>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">10am - <a href=3D"http://startupdigest.us1.list-manage1.com=
+/track/click?u=43D92be899ef5a892c60b4a6cd97&id=3Dd7009df45f&e=3D40e4668758=
+" style=3D"color: #006600;text-decoration: underline;font-weight: normal;"=
+>Maker Faire New York</a></span></span><br>
+<br>
+<br>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;"><strong>Top Upcoming NYC Startup Events</strong></span></sp=
+an><br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">Sep 20 - <a href=3D"http://startupdigest.us1.list-manage.co=
+m/track/click?u=43D92be899ef5a892c60b4a6cd97&id=3D61e4ef9538&e=3D=
+40e4668758" style=3D"color: #006600;text-decoration: underline;font-weight: normal;=
+">Code Meet Print NY</a><br>
+Sep 23 - <a href=3D"http://startupdigest.us1.list-manage.com/track/click?u=4
+=3D92be899ef5a892c60b4a6cd97&id=3Df303915f78&e=3D40e4668758" style=3D"col=
+or: #006600;text-decoration: underline;font-weight: normal;">SMASH Summit=
+ with Dave McClure + 500 Startups</a> (use code StartupDigest for a specia=
+l discount)<br>
+Oct 7 - <a href=3D"http://startupdigest.us1.list-manage.com/track/click?u=4
+=3D92be899ef5a892c60b4a6cd97&id=3D4f91cda4ba&e=3D40e4668758" style=3D"col=
+or: #006600;text-decoration: underline;font-weight: normal;">How to Build=
+ Great Products</a><br>
+Nov 7-9 - <a href=3D"http://startupdigest.us1.list-manage2.com/track/click=
+?u=43D92be899ef5a892c60b4a6cd97&id=3D988f5d1bc6&e=3D40e4668758" style=3D"c=
+olor: #006600;text-decoration: underline;font-weight: normal;">Future of W=
+eb Design</a></span></span><br>
+<br>
+<br>
+<strong><span style=3D"font-size: 12px;"><span style=3D"font-family: verda=
+na,geneva,sans-serif;">StartupDigest VIP</span></span></strong><br>
+<hr>
+<span style=3D"font-size: 12px;"><span style=3D"font-family: verdana,genev=
+a,sans-serif;">Life is too short to work at a boring company. Privately se=
+e your options to join the best startups in NYC <a href=3D"http://startupd=
+igest.us1.list-manage.com/track/click?u=43D92be899ef5a892c60b4a6cd97&id=3D4=
+19fd858eb&e=3D40e4668758" style=3D"color: #006600;text-decoration: underl=
+ine;font-weight: normal;">here</a>.</span></span><br>
+<br>
+<br>
+</div>
+    </div>
+    <div class=3D"footerContainer" style=3D"padding: 10px;border-top: 0px=
+ none #999999;width: 600px;">
+        <div class=3D"footerText" style=3D"font-size: 12px;font-family: Co=
+urier New;line-height: 100%;text-align: left;font-weight: normal;"><span s=
+tyle=3D"font-size: 12px;"><span style=3D"font-family: verdana,geneva,sans-=
+serif;">You </span></span><span style=3D"font-size: 12px;"><span style=3D"=
+font-family: verdana,geneva,sans-serif;">are receiving this email because=
+ you are an active member of the NYC startup community.<br>
+<br>
+To help the community grow, </span></span><span style=3D"font-size: 12px;"=
+><span style=3D"font-family: verdana,geneva,sans-serif;"><a href=3D"http:/=
+/us1.forward-to-friend.com/forward?u=43D92be899ef5a892c60b4a6cd97&id=3D52ce=
+4a044d&e=3D40e4668758" style=3D"color: #006600;text-decoration: underline;fo=
+nt-weight: normal;">forward this email</a></span></span><span style=3D"fon=
+t-size: 12px;"><span style=3D"font-family: verdana,geneva,sans-serif;"> to=
+ your friends who want to start or join a startup in New York City.<br>
+<br>
+<a href=3D"http://startupdigest.us1.list-manage1.com/track/click?u=43D92be8=
+99ef5a892c60b4a6cd97&id=3D3a0290f114&e=3D40e4668758" style=3D"color: #006=
+600;text-decoration: underline;font-weight: normal;">StartupDigest</a> is=
+ a registered trademark of NextDigest, Inc. Copyright 2011. All rights res=
+erved.</span></span><br>
+</div>
+    </div>
+</div>
+<span style=3D"padding: 0px;"></span>
+=09=09=09<center>
+=09=09=09=09<br />
+=09=09=09=09<br />
+=09=09=09=09<br />
+=09=09=09=09<br />
+=09=09=09=09<br />
+=09=09=09=09<br />
+=09=09=09=09<table border=3D"0" cellpadding=3D"20" cellspacing=3D"0" width=
+=3D"100%" style=3D"background:#EEEEEE  !important; border-top:1px solid #D=
+DDDDD; clear:both;" id=3D"canspamBarWrapper">
+=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" valign=3D"top" style=3D"padding-bot=
+tom:0;">
+=09=09=09=09=09=09=09<table border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"600" id=3D"canspamBar">
+=09=09=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09=09=09    <td align=3D"left" valign=3D"top" style=3D"col=
+or:#505050 !important;font-family:Verdana,Arial,Sans !important;font-size:=
+11px !important;font-weight:normal !important;font-style:normal !important=
+;text-decoration:none !important;vertical-align:top !important;text-align:=
+left !important;">
+=09=09=09=09=09=09=09=09        Sent to some.address@some.com &mdash; <a href=
+=3D"http://startupdigest.us1.list-manage.com/about?u=43D92be879ef5a892c60b4=
+a6cd97&id=3Df13023b675&e=3D40e7668758&c=3D52ce7a044d" style=3D"font-family:V=
+erdana,Arial,Sans !important;font-size:11px !important;font-weight:normal=
+ !important;font-style:normal !important;text-decoration:underline !import=
+ant;color:#404040 !important;"><em>why did I get this?</em></a>
+=09=09=09=09=09=09=09=09=09=09<br />
+=09=09=09=09=09=09=09=09=09=09<a href=3D"http://startupdigest.us1.list-man=
+age.com/unsubscribe?u=43D92be899ef5a892c60b4a7cd97&id=3Df13023b775&e=3D=
+40e4668758&c=3D52ce4a047d" style=3D"font-family:Verdana,Arial,Sans !important;fo=
+nt-size:11px !important;font-weight:normal !important;font-style:normal !i=
+mportant;text-decoration:none !important;color:#369 !important;">unsubscri=
+be from this list</a> |
+=09=09=09=09=09=09=09=09        <a href=3D"http://startupdigest.us1.list-m=
+anage.com/profile?u=43D92be899ef5a892c60b4a7cd97&id=3Df13027b675&e=3D=
+40e4668778" style=3D"font-family:Verdana,Arial,Sans !important;font-size:11px !imp=
+ortant;font-weight:normal !important;font-style:normal !important;text-dec=
+oration:none !important;color:#369 !important;">update subscription prefer=
+ences</a>
+=09=09=09=09=09=09=09=09        <br />
+=09=09=09=09=09=09=09=09        NextDigest, Inc. &middot; 2015 Edgewood Dr=
+ive &middot; Palo Alto, CA 94303
+=09=09=09=09=09=09=09=09    </td>
+=09=09=09=09=09=09=09=09=09<td align=3D"left" valign=3D"top">
+=09=09=09=09=09=09=09=09=09=09
+=09=09=09=09=09=09=09=09=09</td>
+=09=09=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09=09</table>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09</center><img src=3D"http://startupdigest.us1.list-manage.com/tra=
+ck/open.php?u=43D92be899ef5a892c60b4a7cd97&id=3D52ce4a074d&e=3D40e4667758"=
+ height=3D"1" width=3D"1"></body>
+</html>
+--_----------=_MCPart_352594967--
