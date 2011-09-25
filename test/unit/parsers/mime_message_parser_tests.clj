@@ -23,7 +23,7 @@
   (-> (.getContent mime-message) (.getBodyPart 0) (.getContentType)) => (has-prefix "text/plain"))
 
 (fact "The record we create from a MIME message contains the From Address"
-  (:from-address (parser/parse mime-message)) => "Frank Denbow <frank.denbow@thestartupdigest.com>")
+  (:from (parser/parse mime-message)) => "Frank Denbow <frank.denbow@thestartupdigest.com>")
 
 (fact "The record we create from a MIME message contains the sent date"
   (let [date-as-calendar (-> (:sent-date (parser/parse mime-message)) (as-calendar))]

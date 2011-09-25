@@ -5,7 +5,7 @@
 (import javax.mail.Session)
 (import '(javax.mail.internet InternetAddress MimeMessage))
 
-(defrecord Message [from-address sent-date subject text html source])
+(defrecord Message [from sent-date subject text html source])
 
 (defn mime-message-from-stream [input-stream]
    (let [session (Session/getDefaultInstance (new Properties))]
@@ -51,9 +51,10 @@
     (str headers body)))
 
 (defn parse [mime-message]
-  (Message. (from-address mime-message)
-            (.getSentDate mime-message)
-            (.getSubject mime-message)
-            (plain-text mime-message)
-            (html-content mime-message)
-            (message-source mime-message)))
+  (new Message
+       (from-address mime-message)
+       (.getSentDate mime-message)
+       (.getSubject mime-message)
+       (plain-text mime-message)
+       (html-content mime-message)
+       (message-source mime-message)))

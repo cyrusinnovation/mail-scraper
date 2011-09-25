@@ -66,18 +66,25 @@
 
 (let [driver (new FirefoxDriver)]
 
-  (background (before :facts (try
-                               (do
+  (background (before :facts (do
+                               (try
                                  (.get driver "http://localhost:8080/_ah/admin/datastore?kind=Event")
                                  (-> (.findElement driver (By/id "allkeys")) (.click))
                                  (-> (.findElement driver (By/id "delete_button")) (.click))
-                                 (-> (.switchTo driver) (.alert) (.accept)))
-                               (catch Throwable t :no-data-to-clear))))
+                                 (-> (.switchTo driver) (.alert) (.accept))
+                                 (catch Throwable t :no-data-to-clear))
+                               (try
+                                 (.get driver "http://localhost:8080/_ah/admin/datastore?kind=Message")
+                                 (-> (.findElement driver (By/id "allkeys")) (.click))
+                                 (-> (.findElement driver (By/id "delete_button")) (.click))
+                                 (-> (.switchTo driver) (.alert) (.accept))
+                                 (catch Throwable t :no-data-to-clear))
+                               )))
                       
-;; (fact "Page with no events results from empty database"
-;; 			(.get driver "http://localhost:8080/report")
-;; 			(-> (.findElement driver (By/tagName "title")) (.getText)) => "Networking Events"
-;; 			(-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "There are no networking events at this time.")
+(fact "Page with no events results from empty database"
+			(.get driver "http://localhost:8080/report")
+			(-> (.findElement driver (By/tagName "title")) (.getText)) => "Networking Events"
+			(-> (.findElement driver (By/cssSelector ".eventTitle")) (.getText)) => "There are no networking events at this time.")
 
 ;; (fact "The application persists and retrieves an event"
 ;;   (let [timestamp (str (new java.util.Date))]
@@ -96,14 +103,14 @@
 (fact "We can post a mail message to the application."
   (let [mail-message (slurp "./test/data/startup-digest-mail.txt")]
   (post "http://localhost:8080/events" {"name" "An event submitted via POST."} mail-message) => (contains "<title>Submitted</title>")
-  (.get driver "http://localhost:8080/report")
-  (-> (.findElement driver (By/cssSelector ".message")) (.getText)) => "Frank Denbow"))
+  (.get driver "http://localhost:8080/_ah/admin/datastore?kind=Message")
+  (-> (.findElement driver (By/xpath "//td[contains(., 'Frank')]")) (.getText)) => "Frank Denbow <frank.denbow@thestartupdigest.com>"))
   
 
-  (.quit driver))
+(.quit driver))
 
 
-;;; Facts to test utility methods
+;;; Facts to test utility methods for POST
 
 ;; (fact
 ;;   (form-query-string {}) => "")
