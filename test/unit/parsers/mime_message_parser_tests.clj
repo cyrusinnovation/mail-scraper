@@ -14,19 +14,31 @@
     (.setTime calendar date)
     calendar))
 
-(background (around :facts (let [file-input-stream (new FileInputStream "./test/data/startup-digest-mail.txt")
-                                 mime-message (parser/mime-message-from-stream file-input-stream)]
+(background (around :facts (let [file-input-stream (new FileInputStream "./test/data/startup-digest-mail.txt")]
                              ?form
                              )))
 
 (fact "We can get a MIME message from an InputStream"
-  (-> (.getContent mime-message) (.getBodyPart 0) (.getContentType)) => (has-prefix "text/plain"))
+  (let [mime-message (parser/mime-message-from-stream file-input-stream)]
+    (-> (.getContent mime-message) (.getBodyPart 0) (.getContentType)) => (has-prefix "text/plain")))
 
-(fact "The record we create from a MIME message contains the From Address"
-  (:from (parser/parse mime-message)) => "Frank Denbow <frank.denbow@thestartupdigest.com>")
+(fact "We can extract body parts from a MIME message"
+  (let [mime-message (parser/mime-message-from-stream file-input-stream)]
+    (-> (parser/body-parts mime-message) (count)) => 2))
 
-(fact "The record we create from a MIME message contains the sent date"
-  (let [date-as-calendar (-> (:sent-date (parser/parse mime-message)) (as-calendar))]
+(fact "We can extract the plain text part of a MIME message"
+  (let [mime-message (parser/mime-message-from-stream file-input-stream)]
+    (-> (parser/body-parts-of-type mime-message "text/plain") (first) (.getContentType)) => (has-prefix "text/plain")))
+
+(fact "We can extract the html part of a MIME message"
+  (let [mime-message (parser/mime-message-from-stream file-input-stream)]
+    (-> (parser/body-parts-of-type mime-message "text/html") (first) (.getContentType)) => (has-prefix "text/html")))
+
+(fact "The record we create from an input stream contains the From Address"
+  (:from (parser/parse file-input-stream)) => "Frank Denbow <frank.denbow@thestartupdigest.com>")
+
+(fact "The record we create from an input stream contains the sent date"
+  (let [date-as-calendar (-> (:sent-date (parser/parse file-input-stream)) (as-calendar))]
     (.get date-as-calendar Calendar/YEAR) => 2011
     (.get date-as-calendar Calendar/MONTH) => 8
     (.get date-as-calendar Calendar/DAY_OF_MONTH) => 6
@@ -34,26 +46,17 @@
     (.get date-as-calendar Calendar/MINUTE) => 3
     (.get date-as-calendar Calendar/SECOND) => 21))
 
-(fact "The record we create from a MIME message contains the subject"
-  (:subject (parser/parse mime-message)) => "NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell, Video Hackday")
+(fact "The record we create from an input stream contains the subject"
+  (:subject (parser/parse file-input-stream)) => "NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell, Video Hackday")
 
-(fact "We can extract body parts from a MIME message"
-  (-> (parser/body-parts mime-message) (count)) => 2)
+(fact "The record we create from an input stream contains the plain text"
+  (:text (parser/parse file-input-stream)) => (contains "Life is too short to work at a boring company"))
 
-(fact "We can extract the plain text part of a MIME message"
-  (-> (parser/body-parts-of-type mime-message "text/plain") (first) (.getContentType)) => (has-prefix "text/plain"))
+(fact "The record we create from an input stream contains the HTML"
+  (:html (parser/parse file-input-stream)) => (contains "<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell"))
 
-(fact "We can extract the html part of a MIME message"
-  (-> (parser/body-parts-of-type mime-message "text/html") (first) (.getContentType)) => (has-prefix "text/html"))
-
-(fact "The record we create from a MIME message contains the plain text"
-  (:text (parser/parse mime-message)) => (contains "Life is too short to work at a boring company"))
-
-(fact "The record we create from a MIME message contains the HTML"
-  (:html (parser/parse mime-message)) => (contains "<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell"))
-
-(fact "The record we create from a MIME message contains the original message"
-  (let [source (string/split-lines (:source (parser/parse mime-message)))]
+(fact "The record we create from an input stream contains the original mail message"
+  (let [source (string/split-lines (:source (parser/parse file-input-stream)))]
     (first source) => "Delivered-To: nul@bitbucket.net"
     (second source) => "Received: by 10.150.95.9 with SMTP id s9cs132021ybb;"
     (last source) => "--_----------=_MCPart_352594967--"))
@@ -62,20 +65,20 @@
   (let [session (Session/getDefaultInstance (new Properties))
         message (new MimeMessage session)]
     (.setText message "foo bar bam")
-    (:text (parser/parse message)) => "foo bar bam"))
+    (:text (parser/parse-mime-message message)) => "foo bar bam"))
 
 (fact "We get an empty string for a message's HTML if a single-part MIME message has no HTML part."
   (let [session (Session/getDefaultInstance (new Properties))
         message (new MimeMessage session)]
     (.setText message "foo bar bam")
-    (:html (parser/parse message)) => ""))
+    (:html (parser/parse-mime-message message)) => ""))
 
 (fact "We get a correct string for a message's HTML if the message is not multipart."
   (let [session (Session/getDefaultInstance (new Properties))
         message (new MimeMessage session)]
     (.setContent message "<p>foo bar bam</p>" "text/html")
     (.saveChanges message)
-    (:html (parser/parse message)) => "<p>foo bar bam</p>"))
+    (:html (parser/parse-mime-message message)) => "<p>foo bar bam</p>"))
 
 (defn create-multipart-msg-without-text-part [mime-msg]
   (let [multipart (.getContent mime-msg)
@@ -88,6 +91,7 @@
     new-msg))
     
 (fact "We get an empty string for a message's text if a multipart MIME message has no text part."
-  (let [message (create-multipart-msg-without-text-part mime-message)]
+  (let [mime-message (parser/mime-message-from-stream file-input-stream)
+        message (create-multipart-msg-without-text-part mime-message)]
     (-> (.getContent message) (.getCount)) => 1
-    (:text (parser/parse message)) => ""))
+    (:text (parser/parse-mime-message message)) => ""))

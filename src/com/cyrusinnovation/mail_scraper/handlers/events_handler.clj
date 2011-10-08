@@ -1,14 +1,13 @@
 (ns com.cyrusinnovation.mail-scraper.handlers.events-handler
-  (:require [com.cyrusinnovation.mail-scraper.parsers.mime-message-parser :as parser])
+  (:require [com.cyrusinnovation.mail-scraper.parsers.mime-message-parser :as message-parser])
   (:require [com.cyrusinnovation.mail-scraper.persistence.message-persistence :as persister])
 	(:require [com.cyrusinnovation.mail-scraper.utils.template-utils :as utils])
   (:require [net.cgrand.enlive-html :as html]))
 
-(defn mime-message-from [request]
-    (-> (.getInputStream request) (parser/mime-message-from-stream)))
-
-(defn save-incoming-message [message]
-  (-> (parser/parse message) (persister/store)))
+(defn save-incoming-message [input-stream]
+  (let [message-record (message-parser/parse input-stream)]
+    (persister/store message-record)
+    message-record))
 
 (defn show-user-confirmation [servlet]
   (let [template (utils/prepare-template servlet "events"
@@ -21,6 +20,6 @@
   
 (defn events [servlet request response]
   (let [event-title (.getParameter request "name")
-        message (mime-message-from request)]
-    (save-incoming-message message)
+        input-stream (.getInputStream request)]
+    (save-incoming-message input-stream)
     (show-user-confirmation servlet)))
