@@ -50,10 +50,11 @@
   (:subject (parser/parse file-input-stream)) => "NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell, Video Hackday")
 
 (fact "The record we create from an input stream contains the plain text"
-  (:text (parser/parse file-input-stream)) => (contains "Life is too short to work at a boring company"))
+    (:text (parser/parse file-input-stream)) => (contains "Privately see your options to")) ; this will fail if we don't correctly process MIME linebreaks
 
 (fact "The record we create from an input stream contains the HTML"
-  (:html (parser/parse file-input-stream)) => (contains "<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell"))
+  (:html  (parser/parse file-input-stream)) 
+  => (contains "<title>NYC StartupDigest - September 6, 2011 | Mission50, Hack and Tell, Video"))  ; this will fail if we don't correctly process MIME linebreaks
 
 (fact "The record we create from an input stream contains the original mail message"
   (let [source (string/split-lines (:source (parser/parse file-input-stream)))]
